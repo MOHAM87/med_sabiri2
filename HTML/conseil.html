@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conseils pour les Clients</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #43cea2, #185a9d);* Gradient background */
+            color: #333;
+            transition: background 0.3s ease;
+        }
+
+        header {
+            background-color:linear-gradient(to right, #6a11cb, #2575fc); /* Green header */
+            text-align: center;
+            padding: 20px 0;
+            color: #fff;
+            font-size: 2rem;
+            border-bottom: 2px solid #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2d075b;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 4px solid  #2d075b;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        li:hover {
+            background: #eef9ee; /* Light green on hover */
+            transform: scale(1.02); /* Slight scale effect on hover */
+        }
+
+        li h3 {
+            margin: 0 0 10px;
+            color: #2d075b;
+        }
+
+        li p {
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #2d075b;
+            color: white;
+        }
+
+        .add-tip-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .add-tip-container input {
+            padding: 10px;
+            width: calc(50% - 20px);
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border 0.3s ease;
+        }
+
+        .add-tip-container input:focus {
+            border: 1px solid #2d075b; /* Green border on focus */
+            outline: none;
+        }
+
+        .add-tip-container button {
+            padding: 10px 20px;
+            background: #2d075b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-tip-container button:hover {
+            background: #45a049; /* Darker green on hover */
+        }
+
+        /* Small screen responsiveness */
+        @media (max-width: 600px) 
+            .add-tip-container input {
+                width: calc(100% - 20px); /* Full-width on small screens */
+            }
+            .logo h1 {
+            color: white;
+            font-family: 'Niconne', cursive;
+            margin: 0;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none; /* No underline */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+      <div class="logo">
+        <!-- Logo wrapped in anchor tag for redirection -->
+        <a href="../index.html">
+            <h1>Fresh Fruit</h1>
+        </a>
+    </div>
+        Conseils pour les Clients
+    </header>
+    <div class="container">
+        <h2>Les Meilleurs Conseils</h2>
+        <ul id="tipsList">
+            <!-- Dynamic tips will be added here -->
+        </ul>
+        <div class="add-tip-container">
+            <h3>Ajoutez un nouveau conseil :</h3>
+            <input type="text" id="tipTitle" placeholder="Titre du conseil">
+            <input type="text" id="tipContent" placeholder="Détail du conseil">
+            <button onclick="addTip()">Ajouter</button>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 - Conseils pour les Clients | Fait avec ❤️
+    </footer>
+
+    <script>
+        // Conseils de base pour les clients
+        const tips = [
+            { title: "Choisissez des produits frais", content: "Vérifiez la couleur et la texture des fruits et légumes avant de les acheter." },
+            { title: "Privilégiez les produits de saison", content: "Les fruits et légumes de saison sont plus savoureux et souvent moins chers." },
+            { title: "Achetez en petites quantités", content: "Évitez le gaspillage en achetant uniquement ce dont vous avez besoin." },
+            { title: "Lavez bien vos produits", content: "Avant de consommer, nettoyez les fruits et légumes pour éliminer les impuretés." },
+            { title: "Stockez correctement", content: "Placez les produits dans un endroit frais et sec pour qu'ils durent plus longtemps." }
+        ];
+
+        // Fonction pour afficher les conseils
+        function displayTips() {
+            const tipsList = document.getElementById("tipsList");
+            tipsList.innerHTML = ""; // Clear the list
+            tips.forEach(tip => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <h3>${tip.title}</h3>
+                    <p>${tip.content}</p>
+                `;
+                tipsList.appendChild(li);
+            });
+        }
+
+        // Fonction pour ajouter un nouveau conseil
+        function addTip() {
+            const tipTitle = document.getElementById("tipTitle").value;
+            const tipContent = document.getElementById("tipContent").value;
+
+            if (tipTitle && tipContent) {
+                tips.push({ title: tipTitle, content: tipContent });
+                displayTips(); // Update the list
+                document.getElementById("tipTitle").value = "";
+                document.getElementById("tipContent").value = "";
+            } else {
+                alert("Veuillez remplir les deux champs !");
+            }
+        }
+
+        // Initial display of tips
+        displayTips();
+    </script>
+</body>
+</html>

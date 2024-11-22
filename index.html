@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Food</title>
+    <link rel="stylesheet" href="CSS/F.CSS">
+    <!-----font-family-link-------> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/F.CSS">
+  
+</head>
+<body class="light-mode">
+    <div class="menu">
+        <div class="logo">
+            <!-- Logo wrapped in anchor tag for redirection -->
+            <a href="index.html">
+                <h1>Fresh Fruit</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="index.html">ACCEUIL</a>
+            <a href="https://wa.me/+212709234221?text=Bonjour!%20Je%20suis%20intéressé%20par%20vos%20fruits%20et%20légumes.%20Pouvez-vous%20m’aider%20?" target="_blank">CONTACTS</a>
+            <a href="HTML/conseil.html">Conseil</a>
+            <a href="HTML/comender.html">Commander</a>
+            <a href="">CONTACTS</a>
+        </nav>
+        <div class="sign-up">
+            <a href="HTML/formulaire.html">S'INSCRIRE</a>
+        </div>
+        <!-- Theme toggle button -->
+        <button class="theme-toggle-btn" onclick="toggleTheme()">Switch Theme</button>
+    </div>
+
+    <div class="banner">
+        <video controls>
+            <source src="media/WhatsApp Video 2024-11-22 at 01.18.15_a3db6730.mp4" type="video/mp4">
+        </video>
+        
+    </div>
+
+    <script>
+        // Theme toggle function
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+        }
+    </script>
+
+</body>
+</html>
